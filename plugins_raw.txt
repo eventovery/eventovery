@@ -1,0 +1,13 @@
+Eventovery WordPress Stack Identification:
+
+Theme: Hello Elementor (hello-elementor)
+Child Theme: hello-elementor-child
+
+Key Plugins identified:
+1. Elementor (elementor) - Page builder
+2. Elementor Pro (elementor-pro) - Professional features
+3. Elementor Custom Skin (ele-custom-skin) - For custom loop designs in lists
+4. Advanced Custom Fields (acf) - For the 'directorio_espacios' metadata
+5. Cookie Law Info (cookie-law-info) - GDPR/Cookie consent
+
+The directory functionality is built using Elementor, ACF, and likely custom loop skins, rather than a monolithic directory plugin like Listify or MyListing.
