@@ -74,7 +74,7 @@ function App() {
           <div className="editorial-container footer-grid">
             <div className="footer-section">
               <h5>EVENTOVERY</h5>
-              <p>Tu aliado exclusivo para<br />eventos corporativos en Madrid.</p>
+              <p>Consultoría experta en espacios y<br />catering para eventos corporativos.</p>
             </div>
             <div className="footer-section">
               <h5>CONTACTO</h5>

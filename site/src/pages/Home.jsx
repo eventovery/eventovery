@@ -19,13 +19,13 @@ function Home() {
         <div className="editorial-container">
           <div className="hero-content">
             <div className="hero-badges">
-              <span className="badge">SIN COSTE ADICIONAL</span>
-              <span className="badge">RÁPIDO</span>
-              <span className="badge">EFECTIVO</span>
+              <span className="badge">GESTIÓN GRATUITA</span>
+              <span className="badge">RESPUESTA INMEDIATA</span>
+              <span className="badge">RESULTADOS EFICACES</span>
             </div>
-            <h1>Espacios y Catering en Madrid <span>exclusivos</span> para eventos corporativos</h1>
+            <h1>Espacios y Catering <span>Exclusivos</span> para Eventos de Empresa en Madrid</h1>
             <p className="hero-description">
-              Recibe varias propuestas por los mejores Espacios y Catering en Madrid para el éxito de tu empresa.
+              La selección definitiva de espacios singulares y gastronomía de alto nivel, diseñada específicamente para el éxito de tu marca.
             </p>
           </div>
         </div>
@@ -42,9 +42,9 @@ function Home() {
                 </div>
               </Link>
               <div className="choice-info">
-                <h3>Más de 400 salas seleccionadas:</h3>
-                <p>Auditorios, Palacetes, Teatros, Cines, Multiespacios, Espacios únicos, Terrazas, Jardines y Restaurantes para eventos de empresa.</p>
-                <Link to="/espacios" className="click-here">HAZ CLIC AQUÍ <ArrowRight size={16} /></Link>
+                <h3>Una colección curada de más de 400 espacios singulares</h3>
+                <p>Desde auditorios vanguardistas hasta palacetes históricos. Encontramos el escenario perfecto para cada visión corporativa.</p>
+                <Link to="/espacios" className="click-here">EXPLORAR SELECCIÓN <ArrowRight size={16} /></Link>
               </div>
             </div>
 
@@ -60,9 +60,9 @@ function Home() {
               </div>
               </Link>
               <div className="choice-info">
-                <h3>Catering exclusivos para eventos</h3>
-                <p>Los mejores catering de Madrid: tradicionales, vanguardistas, con propuestas adaptadas a cualquier tipo de cocina y experiencia.</p>
-                <Link to="/catering" className="click-here">HAZ CLIC AQUÍ <ArrowRight size={16} /></Link>
+                <h3>Excelencia gastronómica para el sector corporativo</h3>
+                <p>Propuestas a medida que combinan vanguardia y tradición, garantizando una experiencia memorable para tus asistentes.</p>
+                <Link to="/catering" className="click-here">VER CATÁLOGO <ArrowRight size={16} /></Link>
               </div>
             </div>
           </div>
@@ -98,13 +98,13 @@ function Home() {
               </div>
 
               <div className="benefits-list">
-                <p>RECIBIRÁS:</p>
+                <p>NUESTRO COMPROMISO:</p>
                 <ul>
-                  <li>VARIAS PROPUESTAS de ESPACIOS optimizadas a las necesidades de tu evento para que puedas comparar</li>
-                  <li>Respuestas rápidas y eficaces</li>
-                  <li>Propuestas de Catering competitivas y profesionales</li>
-                  <li>Asesoramiento y gestión de reservas</li>
-                  <li>Soporte durante todo el proceso de contratación</li>
+                  <li><strong>Comparativas Detalladas:</strong> Recibe opciones curadas que encajan perfectamente con tu briefing.</li>
+                  <li><strong>Agilidad Corporativa:</strong> Entendemos tus tiempos. Propuestas precisas en tiempo récord.</li>
+                  <li><strong>Gastronomía de Garantía:</strong> Proveedores seleccionados con los más altos estándares.</li>
+                  <li><strong>Acompañamiento Experto:</strong> Te asesoramos y gestionamos cada paso de la reserva.</li>
+                  <li><strong>Soporte Integral:</strong> Asistencia continua durante todo el proceso de contratación.</li>
                 </ul>
               </div>
             </div>

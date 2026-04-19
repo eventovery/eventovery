@@ -12,11 +12,10 @@ function SobreNosotros() {
           <div className="team-member">
             <div className="member-info">
               <h2 className="member-name">Chiara Bennicelli</h2>
-              <p className="member-tagline">Eficacia, rapidez y empatía</p>
+              <p className="member-tagline">Estrategia, Pasión y Precisión Editorial</p>
               <div className="member-desc">
-                <p>Mi nombre es <strong>Chiara</strong> y soy la cara visible de <strong>Eventovery</strong>.</p>
-                <p>Llevo más de 20 años dedicada totalmente al mundo de los eventos.</p>
-                <p>Los últimos 10 años me especialicé en Espacios y Catering en Madrid, mi ciudad adoptiva.</p>
+                <p>Directora y Fundadora de <strong>Eventovery</strong>, Chiara cuenta con una trayectoria de más de 20 años transformando eventos corporativos en experiencias memorables.</p>
+                <p>Especializada en el ecosistema de espacios y catering en Madrid, combina un conocimiento profundo del mercado con una visión creativa orientada a resultados.</p>
               </div>
 
               <div className="quote-box">
@@ -41,7 +40,8 @@ function SobreNosotros() {
              <div className="member-info">
               <h2 className="member-name">Lucas Cervera</h2>
               <div className="member-desc">
-                <p>asesor</p>
+                <p>Consultor Estratégico & Desarrollo de Negocio</p>
+                <p>Experto en optimización de procesos y estrategia digital, Lucas aporta la estructura y visión necesarias para asegurar que cada propuesta de Eventovery cumpla con los estándares de eficiencia que el cliente corporativo exige.</p>
               </div>
             </div>
             <div className="member-image">

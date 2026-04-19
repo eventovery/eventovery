@@ -26,7 +26,7 @@ function Directory({ spaces, loading, title = "Espacios" }) {
         <div className="editorial-container">
           <h1>{title}</h1>
           <p className="subtitle">
-            Explora más de 400 espacios exclusivos seleccionados para tu evento en Madrid.
+            Una selección curada de los escenarios más exclusivos y versátiles de la capital.
           </p>
         </div>
       </section>
