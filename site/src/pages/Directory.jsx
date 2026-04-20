@@ -5,20 +5,34 @@ import { Users, Theater, LayoutGrid, MapPin, Search } from 'lucide-react'
 function Directory({ spaces, loading, title = "Espacios" }) {
   const [activeFilter, setActiveFilter] = useState('All')
 
-  const allTypes = [...new Set(spaces.flatMap(s => s.tipo_espacio || []))]
+  // Pre-sort spaces: larger capacity first
+  const sortedSpaces = [...spaces].sort((a, b) => {
+    const capA = parseInt(a.capacidad_coctail?.[0] || a.capacidad_teatro?.[0] || 0);
+    const capB = parseInt(b.capacidad_coctail?.[0] || b.capacidad_teatro?.[0] || 0);
+    return capB - capA;
+  });
+
+  const allTypes = [...new Set(sortedSpaces.flatMap(s => s.tipo_espacio || []))]
   const categories = ['All', 'Salas de Hoteles', ...allTypes]
 
   const filteredSpaces = activeFilter === 'All' 
-    ? spaces 
+    ? sortedSpaces 
     : activeFilter === 'Salas de Hoteles'
-    ? spaces.filter(s => s.tipo_espacio?.some(t => t.toLowerCase().includes('hotel')) || s.title.toLowerCase().includes('hotel'))
-    : spaces.filter(s => s.tipo_espacio?.includes(activeFilter))
+    ? sortedSpaces.filter(s => s.tipo_espacio?.some(t => t.toLowerCase().includes('hotel')) || s.title.toLowerCase().includes('hotel'))
+    : sortedSpaces.filter(s => s.tipo_espacio?.includes(activeFilter))
 
   const getCount = (cat) => {
-    if (cat === 'All') return spaces.length
-    if (cat === 'Salas de Hoteles') return spaces.filter(s => s.tipo_espacio?.some(t => t.toLowerCase().includes('hotel')) || s.title.toLowerCase().includes('hotel')).length
-    return spaces.filter(s => s.tipo_espacio?.includes(cat)).length
+    if (cat === 'All') return sortedSpaces.length
+    if (cat === 'Salas de Hoteles') return sortedSpaces.filter(s => s.tipo_espacio?.some(t => t.toLowerCase().includes('hotel')) || s.title.toLowerCase().includes('hotel')).length
+    return sortedSpaces.filter(s => s.tipo_espacio?.includes(cat)).length
   }
+
+  const getImageUrl = (path) => {
+    if (!path) return '';
+    if (path.startsWith('http')) return path;
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return `${import.meta.env.BASE_URL}${cleanPath}`;
+  };
 
   return (
     <div className="directory-page">
@@ -31,9 +45,9 @@ function Directory({ spaces, loading, title = "Espacios" }) {
         </div>
       </section>
 
-      <section className="filters-section" style={{ borderBottom: '1px solid var(--border)', padding: '2rem 0' }}>
+      <section className="filters-section">
         <div className="editorial-container">
-          <div className="filters" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
+          <div className="filters-container">
             {categories.map(cat => {
               const count = getCount(cat);
               if (count === 0 && cat !== 'All') return null;
@@ -42,18 +56,6 @@ function Directory({ spaces, loading, title = "Espacios" }) {
                   key={cat} 
                   className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
                   onClick={() => setActiveFilter(cat)}
-                  style={{ 
-                    padding: '0.8rem 1.5rem', 
-                    fontSize: '0.75rem', 
-                    fontWeight: 700, 
-                    textTransform: 'uppercase', 
-                    letterSpacing: '0.1em',
-                    background: activeFilter === cat ? 'var(--primary)' : 'transparent',
-                    color: activeFilter === cat ? 'white' : 'var(--muted-foreground)',
-                    border: '1px solid ' + (activeFilter === cat ? 'var(--primary)' : 'var(--border)'),
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease'
-                  }}
                 >
                   {cat} ({count})
                 </button>
@@ -73,7 +75,7 @@ function Directory({ spaces, loading, title = "Espacios" }) {
                 <Link to={`/space/${space.slug}`} key={space.id} className="card">
                   <div className="card-image-wrap">
                     {space.featured_image && (
-                      <img src={space.featured_image} alt={space.title} />
+                      <img src={getImageUrl(space.featured_image)} alt={space.title} />
                     )}
                   </div>
                   <div className="card-content">
@@ -108,8 +110,8 @@ function Directory({ spaces, loading, title = "Espacios" }) {
                         <span className="meta-value-small">Madrid</span>
                       </div>
                     </div>
-                    <div className="card-footer-link" style={{ marginTop: '2rem', textAlign: 'right' }}>
-                      <span className="read-more" style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase' }}>Lee más »</span>
+                    <div className="card-footer-link">
+                      <span className="read-more">Lee más »</span>
                     </div>
                   </div>
                 </Link>

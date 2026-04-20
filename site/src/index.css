@@ -1,21 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;0,800;1,700&display=swap');
 
 :root {
-  /* Royal Nazarene Palette - Premium Editorial */
-  --primary: #4a0e4e; /* Deep Nazarene Purple */
-  --primary-foreground: #ffffff;
+  /* Ivory & Obsidian Palette - High-End Minimalist Editorial */
+  --primary: #121212; /* Obsidian Ink */
+  --primary-foreground: #FDFBF7;
   
-  --secondary: #eae8e0; /* Pearl Surface High */
-  --secondary-foreground: #2d0031;
+  --secondary: #BFA066; /* Champagne Gold */
+  --secondary-foreground: #121212;
   
-  --background: #ffffff; /* Pure White canvas */
-  --foreground: #1b1c17; /* Deep Charcoal Ink */
+  --background: #FDFBF7; /* Bone White canvas */
+  --foreground: #121212; /* Deep Charcoal Ink */
   
-  --muted: #f9f9f9; /* Soft Gray */
-  --muted-foreground: #4f434d;
+  --muted: #F5F4EF; /* Silk Surface */
+  --muted-foreground: #5D605A;
   
-  --border: #d2c2cd; /* Subtle Nazarene Outline */
-  --radius: 0px; /* Sharp corners for Architectural Absolutism */
+  --accent: #BFA066;
+  --accent-foreground: #FDFBF7;
+  
+  --border: #E2E2E2; /* Mist Outline */
+  --radius: 0px; /* Absolute Sharp Corners */
 
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Inter', sans-serif;
@@ -28,6 +31,12 @@
   -webkit-font-smoothing: antialiased;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -35,12 +44,26 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, .logo, .detail-title {
+h1, h2, h3, h4, .detail-title {
   font-family: var(--font-serif);
   font-weight: 700;
-  color: var(--primary) !important; /* Fixed: Global purple headers */
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  color: var(--primary);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-weight: 300; /* Light for 'EVENTO' */
+  font-size: 1.4rem;
+  letter-spacing: 0.3em;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.logo span {
+  font-weight: 800; /* Bold for 'VERY' */
+  letter-spacing: 0.1em;
 }
 
 /* Base Editorial Page Wrapper */
@@ -52,12 +75,12 @@ h1, h2, h3, h4, .logo, .detail-title {
 
 /* Header & Navigation Updated */
 .main-header {
-  height: 100px;
+  height: 90px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
+  background: rgba(253, 251, 247, 0.95); /* Ivory base */
+  backdrop-filter: blur(15px);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -77,26 +100,38 @@ h1, h2, h3, h4, .logo, .detail-title {
 }
 
 .main-nav a {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   color: var(--muted-foreground);
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding-bottom: 0.5rem;
+  position: relative;
 }
 
 .main-nav a:hover, .main-nav a.active {
   color: var(--primary);
 }
 
+.main-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--primary);
+}
+
 /* Landing Page Specifics */
 .hero-landing {
-  padding: 14rem 0 10rem;
-  background-image: linear-gradient(rgba(45, 0, 49, 0.5), rgba(45, 0, 49, 0.5)), url('/images/corporate-hero.png');
+  padding: 16rem 0 12rem;
+  background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url('/images/corporate-hero.png');
   background-size: cover;
   background-position: center;
   text-align: center;
-  color: white;
+  color: var(--background);
 }
 
 .hero-content h1 {
@@ -119,13 +154,13 @@ h1, h2, h3, h4, .logo, .detail-title {
 }
 
 .badge {
-  background: white; /* Contrast badge against dark purple gradient */
+  background: var(--secondary); /* Champagne Gold */
   color: var(--primary);
-  padding: 0.5rem 1.5rem;
+  padding: 0.6rem 1.8rem;
   font-weight: 800;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
 }
 
 .hero-description {
@@ -321,14 +356,15 @@ h1, h2, h3, h4, .logo, .detail-title {
 
 .card {
   border: none;
-  background: white;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  background: var(--background);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: none;
+  border: 0.5px solid transparent;
 }
 
 .card:hover { 
-    transform: translateY(-12px); 
-    box-shadow: 0 30px 60px -12px rgba(74, 14, 78, 0.15); 
+    transform: translateY(-8px); 
+    border-color: var(--border);
 }
 
 .card-image-wrap {
@@ -374,7 +410,54 @@ h1, h2, h3, h4, .logo, .detail-title {
 .meta-item { display: flex; flex-direction: column; gap: 0.5rem; }
 .meta-icon-small { color: var(--primary); width: 18px; }
 .meta-label-small { font-size: 0.7rem; font-weight: 800; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: 0.1em; }
-.meta-value-small { font-size: 1rem; font-weight: 700; color: var(--primary); margin-left: 2rem; }
+.meta-value-small { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-left: 2.2rem; }
+
+/* Filter Buttons Styling */
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.filter-btn {
+  padding: 0.5rem 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  background: transparent;
+  color: var(--muted-foreground);
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.filter-btn:hover {
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  color: var(--primary);
+}
+
+.filter-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--primary);
+}
+
+.icon-label-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
 
 /* Detail Page (Restored) */
 .detail-page { padding: 6rem 0; }
@@ -399,29 +482,50 @@ h1, h2, h3, h4, .logo, .detail-title {
 /* Buttons & Forms */
 .btn-primary {
     background-color: var(--primary);
-    color: white !important;
-    padding: 1.5rem 3rem;
+    color: var(--background) !important;
+    padding: 1.8rem 4rem;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-.btn-primary:hover { background-color: #2d0031; transform: scale(1.02); }
-
-.btn-secondary {
+    transition: all 0.4s ease;
     display: inline-block;
-    margin-top: 1.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    color: var(--primary);
-    border-bottom: 1px solid var(--primary);
 }
 
+.btn-primary:hover { 
+    background-color: var(--secondary); 
+    color: var(--primary) !important;
+}
+
+.card-footer-link {
+  marginTop: 2rem;
+  text-align: right;
+}
+
+.read-more {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.brand-logo-img {
+  max-height: 50px;
+  max-width: 150px;
+  filter: grayscale(1) brightness(1.2);
+  opacity: 0.4;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.brand-logo-img:hover {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}
+
+/* WhatsApp Button styling */
 /* WhatsApp Button styling */
 .whatsapp-button {
     display: flex;
@@ -441,6 +545,45 @@ h1, h2, h3, h4, .logo, .detail-title {
     text-decoration: none;
     margin-bottom: 1rem;
     width: 100%;
+}
+
+.contact-details-large {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.contact-quote-box {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: var(--muted);
+  width: 100%;
+  border-top: 4px solid var(--primary);
+  text-align: center;
+}
+
+.contact-quote-text {
+  font-style: italic;
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-family: var(--font-serif);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-secondary-text {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
 }
 
 .whatsapp-button:hover {

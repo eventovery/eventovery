@@ -15,7 +15,12 @@ function SpaceDetail({ spaces }) {
     }
   }, [slug, spaces])
 
-  if (!space) return <div className="editorial-container loading">Espacio no encontrado...</div>
+  const getImageUrl = (path) => {
+    if (!path) return '';
+    if (path.startsWith('http')) return path;
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return `${import.meta.env.BASE_URL}${cleanPath}`;
+  };
 
   const gallery = space.gallery?.length ? space.gallery : [space.featured_image]
 
@@ -30,7 +35,7 @@ function SpaceDetail({ spaces }) {
   return (
     <div className="detail-page">
       <div className="editorial-container">
-        <Link to="/" className="back-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', fontSize: '0.9rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+        <Link to="/espacios" className="back-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', fontSize: '0.9rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
           <ArrowLeft size={16} /> Volver al Explorador
         </Link>
         
@@ -44,7 +49,7 @@ function SpaceDetail({ spaces }) {
               >
                 {gallery.map((img, i) => (
                   <div key={i} className="carousel-slide" style={{ minWidth: '100%', height: '100%' }}>
-                    <img src={img} alt={`${space.title} gallery ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={getImageUrl(img)} alt={`${space.title} gallery ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                 ))}
               </div>

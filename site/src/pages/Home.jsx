@@ -38,7 +38,11 @@ function Home() {
               <h2>Espacios</h2>
               <Link to="/espacios">
                 <div className="choice-image-box">
-                  <img src="https://eventovery.com/wp-content/uploads/2024/01/auditorio-espacio-2.png" alt="Espacios" />
+                  <img 
+                    src="https://eventovery.com/wp-content/uploads/2024/01/auditorio-espacio-2.png" 
+                    alt="Espacios" 
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
               </Link>
               <div className="choice-info">
@@ -75,7 +79,12 @@ function Home() {
           <div className="brands-grid">
             {brands.map(brand => (
               <div key={brand.name} className="brand-logo-item">
-                <img src={brand.src} alt={brand.name} style={{ maxHeight: '50px', maxWidth: '150px', filter: 'grayscale(1) brightness(0.9)', opacity: 0.8 }} />
+                <img 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  referrerPolicy="no-referrer"
+                  className="brand-logo-img"
+                />
               </div>
             ))}
           </div>

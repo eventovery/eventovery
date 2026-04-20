@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, NavLink, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Directory from './pages/Directory'
 import SpaceDetail from './pages/SpaceDetail'
@@ -46,11 +46,11 @@ function App() {
             <Link to="/" className="logo">EVENTO<span>VERY</span></Link>
             <nav className="main-nav">
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/espacios">Espacios</Link></li>
-                <li><Link to="/catering">Catering</Link></li>
-                <li><Link to="/sobre-nosotros">Sobre nosotros</Link></li>
-                <li><Link to="/contacto">Contacto</Link></li>
+                <li><NavLink to="/" end>Home</NavLink></li>
+                <li><NavLink to="/espacios">Espacios</NavLink></li>
+                <li><NavLink to="/catering">Catering</NavLink></li>
+                <li><NavLink to="/sobre-nosotros">Sobre nosotros</NavLink></li>
+                <li><NavLink to="/contacto">Contacto</NavLink></li>
               </ul>
             </nav>
           </div>
